@@ -1,17 +1,17 @@
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Switch, Redirect } from "react-router-dom";
-import "./App.css";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Home from "./pages/Home";
 import { Toaster } from "react-hot-toast";
+import { Redirect, Route, Switch } from "react-router-dom";
+import "./App.css";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/Login/PrivateRoute/PrivateRoute";
-import CarListing from "./pages/CarListing";
 import NotFound from "./components/NotFound/NotFound";
 import useAuth from "./hook/useAuth";
-import axios from "axios";
 import About from "./pages/About";
+import CarListing from "./pages/CarListing";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Home from "./pages/Home";
 
 function App() {
   const { firebaseContext } = useAuth();

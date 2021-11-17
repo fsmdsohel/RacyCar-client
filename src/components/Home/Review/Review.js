@@ -1,13 +1,12 @@
-import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import Rating from "react-rating";
+import SwiperCore, { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-
-import SwiperCore, { Pagination } from "swiper";
-import Rating from "react-rating";
 import "./Review.css";
-import { Container } from "react-bootstrap";
-import axios from "axios";
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -19,7 +18,7 @@ const Review = () => {
   useEffect(() => {
     const url = `/review`;
     axios.get(url).then((res) => setReviewData(res.data));
-  }, [reviewData]);
+  }, []);
 
   const handleReview = () => {
     const width = window.innerWidth;
@@ -31,6 +30,10 @@ const Review = () => {
   };
 
   window.addEventListener("resize", handleReview);
+
+  useEffect(() => {
+    handleReview();
+  }, []);
 
   return (
     <Container className="pb-5 pt-3 review_container">

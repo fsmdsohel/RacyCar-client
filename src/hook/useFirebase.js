@@ -1,17 +1,17 @@
 import {
-  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
   getAuth,
+  getIdToken,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   updateProfile,
-  getIdToken,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import initializationfirebase from "../firebase/firebase.init";
 import { toast } from "react-hot-toast";
+import initializationfirebase from "../firebase/firebase.init";
 
 initializationfirebase();
 
@@ -203,6 +203,7 @@ const useFirebase = () => {
     handleInput,
     userRegistration,
     signUpWithEmailAndPass,
+    setUserRegistration,
     signInWithEmailAndPass,
   };
 };

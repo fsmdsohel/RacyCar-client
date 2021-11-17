@@ -1,15 +1,17 @@
-import { Col, Container, Row } from "react-bootstrap";
-import { Link, useLocation, useHistory } from "react-router-dom";
-import googleLogo from "../../assests/images/signupLogo/Google__G__Logo.svg.png";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Col, Container, Row, Toast } from "react-bootstrap";
+import { toast } from "react-hot-toast";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import githubLogo from "../../assests/images/signupLogo/github.png";
+import googleLogo from "../../assests/images/signupLogo/Google__G__Logo.svg.png";
 import unloack from "../../assests/images/undraw_unlock_-24-mb.svg";
 import useAuth from "../../hook/useAuth";
-import { toast } from "react-hot-toast";
 import "./Login.css";
-import axios from "axios";
 
 const SignUp = ({ signUp }) => {
   const { firebaseContext } = useAuth();
+  const [showA, setShowA] = useState(true);
   const {
     signInWithGoogle,
     signInWithGithub,
@@ -17,6 +19,7 @@ const SignUp = ({ signUp }) => {
     handleInput,
     signUpWithEmailAndPass,
     signInWithEmailAndPass,
+    setUserRegistration,
   } = firebaseContext;
 
   const location = useLocation();
@@ -57,8 +60,57 @@ const SignUp = ({ signUp }) => {
     signInWithEmailAndPass(handleLoginCallBack, handleUser);
   };
 
+  const toggleShowA = () => setShowA(!showA);
+
+  useEffect(() => {
+    if (!signUp) {
+      setUserRegistration({
+        username: "",
+        fullname: "",
+        email: "admin@admin.com",
+        password: "123456",
+        imageUrl: "",
+      });
+      setShowA(true);
+    } else {
+      setUserRegistration({
+        username: "",
+        fullname: "",
+        email: "",
+        password: "",
+        imageUrl: "",
+      });
+      setShowA(false);
+    }
+  }, [signUp]);
   return (
     <>
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <Toast show={showA} onClose={toggleShowA}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Note</strong>
+          </Toast.Header>
+          <Toast.Body>
+            <small>
+              If you login this fillup email and password you can access admin
+              dashboard and if you sign up or sign in other account than you can
+              not access admin panel
+            </small>
+          </Toast.Body>
+        </Toast>
+      </div>
       <div
         style={{
           display: "flex",
@@ -85,7 +137,14 @@ const SignUp = ({ signUp }) => {
                 >
                   Back to Home
                 </Link>
-                <img className="img-fluid" src={unloack} alt="" />
+                <img
+                  className="img-fluid"
+                  style={{
+                    height: "auto",
+                  }}
+                  src={unloack}
+                  alt=""
+                />
               </Col>
               <Col
                 style={{ flexDirection: "column", alignItems: "start" }}
