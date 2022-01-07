@@ -37,7 +37,7 @@ const Footer = () => {
                 fontSize: "14px",
                 color: "var(--main-color)",
               }}
-              href="https://github.com/fsmdsohel"
+              href="https://github.com"
             >
               _
             </a>
