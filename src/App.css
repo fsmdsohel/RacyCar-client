@@ -131,6 +131,12 @@ body {
   height: 200px;
 }
 
+@media (max-width: 668px) {
+
+  .great_cars {
+    flex-direction: column;
+  }
+}
 
 
 @keyframes animation {

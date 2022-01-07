@@ -26,7 +26,7 @@ const Dellvered = () => {
               </p>
             </Col>
             <Col lg="5" md="12" className="d-flex align-items-center">
-              <div className="d-flex w-100 justify-content-end justify-content-md-center">
+              <div className="d-flex w-100 justify-content-end justify-content-md-center great_cars">
                 <div
                   style={{
                     cursor: "pointer",

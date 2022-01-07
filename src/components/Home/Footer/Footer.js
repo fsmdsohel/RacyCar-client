@@ -39,22 +39,22 @@ const Footer = () => {
               }}
               href="https://github.com/fsmdsohel"
             >
-              Sohel Rana
+              _
             </a>
           </p>
           <div className="social_links">
             <div className="social_link">
-              <a href="https://www.facebook.com/fsmdsohel1">
+              <a href="https://www.facebook.com">
                 <i className="fab fa-facebook-f"></i>
               </a>
             </div>
             <div className="social_link">
-              <a href="https://github.com/fsmdsohel">
+              <a href="https://github.com">
                 <i className="fab fa-github"></i>
               </a>
             </div>
             <div className="social_link">
-              <a href="https://www.linkedin.com/in/fsmdsohel">
+              <a href="https://www.linkedin.com/in">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
